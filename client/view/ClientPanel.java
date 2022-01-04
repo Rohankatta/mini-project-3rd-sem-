@@ -1,10 +1,10 @@
 package client.view;
 
-//import client.conn.Client;
-//import intf.MessageInterface;
+import client.conn.Client;
+import intf.MessageInterface;
 import java.awt.Color;
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,11 +12,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-/**
- *
- * @author IDEA Developers
- */
-public class ClientPanel extends JFrame{ //implements ActionListener, MessageInterface{
+
+public class ClientPanel extends JFrame implements ActionListener, MessageInterface{
     
     private int width = 550;
     private int height = 600;
@@ -46,7 +43,7 @@ public class ClientPanel extends JFrame{ //implements ActionListener, MessageInt
         bottomPanel = new JPanel(null);
         bottomPanel.setBackground(Color.white); //bottom background color
         bottomPanel.setBounds(0, centerPanel.getHeight(), width, 100); //defining window each side width and height
-        //centerPanel.getHeight()-copies the height of the center panel
+        centerPanel.getHeight()-copies the height of the center panel
         
         outputMessages = new JTextArea();//creates a text area which displays the messages sent by the server 
         outputMessages.setBackground(Color.decode("#DD80DD")); //background color
@@ -67,7 +64,7 @@ public class ClientPanel extends JFrame{ //implements ActionListener, MessageInt
         sendMessageBtn.setBackground(Color.decode("#B200B2"));//background color
         sendMessageBtn.setForeground(Color.WHITE); //text color
         sendMessageBtn.setBounds(inputMessage.getWidth() + 15, 10, 100, 30);//sets the position of the button
-        //sendMessageBtn.addActionListener(this);
+        sendMessageBtn.addActionListener(this);
         bottomPanel.add(sendMessageBtn);//method for send button
         
         
@@ -75,7 +72,7 @@ public class ClientPanel extends JFrame{ //implements ActionListener, MessageInt
         connectServerBtn.setBackground(Color.decode("#B200B2"));
         connectServerBtn.setForeground(Color.WHITE);
         connectServerBtn.setBounds(inputMessage.getWidth() + 120, 10, 100, 30);
-        //connectServerBtn.addActionListener(this);
+        connectServerBtn.addActionListener(this);
         bottomPanel.add(connectServerBtn);
         
         mainPanel.add(centerPanel);
@@ -92,7 +89,7 @@ public class ClientPanel extends JFrame{ //implements ActionListener, MessageInt
     }
 }
 
-    /*@Override
+    @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == connectServerBtn){
             try{
@@ -115,4 +112,4 @@ public class ClientPanel extends JFrame{ //implements ActionListener, MessageInt
     public void onMessageReceived(String message) {
         outputMessages.append("Server: " + message + "\n");
     }
-}*/
+}
